@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G1 RL Sandbox</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene"></canvas>
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">UNITREE G1</div>
+          <h1>RL SANDBOX</h1>
+        </div>
+        <div class="status"><span id="statusDot"></span><span id="statusText">RUNNING</span></div>
+      </header>
+
+      <aside class="panel left-panel">
+        <h2>Environment</h2>
+        <div class="metric-grid">
+          <div><span>Physics</span><strong>CANNON-ES</strong></div>
+          <div><span>DoF</span><strong id="dofCount">29</strong></div>
+          <div><span>Room</span><strong>8 x 8 m</strong></div>
+          <div><span>Time</span><strong id="timeValue">0.00 s</strong></div>
+        </div>
+
+        <h2>Robot</h2>
+        <button id="resetBtn" class="wide">Reset humanoid</button>
+        <button id="doorBtn" class="wide">Open door <kbd>E</kbd></button>
+
+        <h2>Policy</h2>
+        <button id="policyBtn" class="wide accent">Start random policy</button>
+        <div class="readout">
+          <span>Reward proxy</span><strong id="rewardValue">0.000</strong>
+        </div>
+      </aside>
+
+      <aside class="panel right-panel">
+        <h2>Actuator controls</h2>
+        <div id="actuatorList" class="actuator-list"></div>
+      </aside>
+
+      <nav class="transport" aria-label="Simulation controls">
+        <button id="reverseBtn" title="Reverse">↶</button>
+        <button id="pauseBtn" title="Pause" class="primary">Ⅱ</button>
+        <button id="stepBtn" title="Step">↦</button>
+        <button id="fastBtn" title="Fast forward">»</button>
+        <label>Speed
+          <select id="speedSelect">
+            <option value="0.25">0.25x</option>
+            <option value="0.5">0.5x</option>
+            <option value="1" selected>1x</option>
+            <option value="2">2x</option>
+            <option value="4">4x</option>
+          </select>
+        </label>
+        <button id="rewindBtn" title="Rewind 2 seconds">Rewind</button>
+      </nav>
+
+      <div class="help">
+        <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move</span>
+        <span><kbd>Q</kbd><kbd>R</kbd> turn</span>
+        <span><kbd>E</kbd> door</span>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
